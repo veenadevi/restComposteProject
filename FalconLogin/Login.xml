@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="Login" path="/api/MobileUserManagement/Login" id="fbdaa957-e61b-4ba0-a6f7-3d2ba09ab4a9" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="fbdaa957-e61b-4ba0-a6f7-3d2ba09ab4a9fileName">Login</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="Method 1" id="8aefece7-4e76-4ff3-9605-860945627820" method="POST">
+    <con:settings/>
+    <con:parameters/>
+    <con:request name="Request 1" id="d5b560a1-d248-4cc6-8f68-cc2f70ecdafa" mediaType="application/json" postQueryString="false">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>http://dev-falconservice.carlstahl.ae</con:endpoint>
+      <con:request>{
+"Username":"ram",
+"Password":"carlstahl@55"
+}</con:request>
+      <con:originalUri>http://dev-falconservice.carlstahl.ae/api/MobileUserManagement/Login</con:originalUri>
+      <con:credentials>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+      <con:parameterOrder/>
+    </con:request>
+  </con:method>
+</con:resource>
