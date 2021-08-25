@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:restMockAction name="/api/MobileUserManagement/Login" method="POST" resourcePath="/api/MobileUserManagement/Login" id="442bc0cf-56dc-461b-afdb-7eb8c43c37bb" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="442bc0cf-56dc-461b-afdb-7eb8c43c37bbfileName">%2Fapi%2FMobileUserManagement%2FLogin</con:setting>
+  </con:settings>
+  <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+  <con:dispatchConfig/>
+  <con:dispatchXPath/>
+  <con:routeScript/>
+  <con:response name="Response 1" id="9981e872-a03d-4122-9ff2-1f072bc5bf46" httpResponseStatus="201" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070" mediaType="application/json" dataSource="">
+    <con:settings/>
+    <con:responseContent>{
+   "Result" : {      
+      "UserID" : 3114,    
+      "RoleId" : 1,
+      "RoleName" : "Administrator"
+   },
+   "Message" : "auth"
+}</con:responseContent>
+  </con:response>
+</con:restMockAction>

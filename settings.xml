@@ -1,13 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="12a9526f-857e-4d86-a084-fcf7d5e1768a" created="3.9.1" activeEnvironment="Default environment" name="FalconAuth" resourceRoot="" compositeProjectFormat="1.3" updated="3.9.1" xmlns:con="http://eviware.com/soapui/config">
-  <con:settings/>
-  <con:properties/>
+<con:soapui-project id="12a9526f-857e-4d86-a084-fcf7d5e1768a" created="3.9.1" activeEnvironment="Dev" name="FalconAuth" resourceRoot="" updated="3.9.1" encryptionMode="Not encrypted" compositeProjectFormat="1.3" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerUIAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Settings File Password" value=""/>
+  <con:entry key="Report Format(s)" value="XML"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="true"/>
+  <con:entry key="Export All" value="true"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Slack Channel(s)" value=""/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Test Suite Tags" value=""/>
+  <con:entry key="Select Report Type" value="JUnit-Style report for automation"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Test Suite" value="Test Suite 1"/>
+  <con:entry key="Run in-process" value="false"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="true"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Test Case Tags" value=""/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value="userName"/>
+  <con:entry key="Test Case" value="Test Case 1"/>
+  <con:entry key="Slack Access Token" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="TestRunner Path" value="C:\Program Files\SmartBear\ReadyAPI-3.9.1\bin"/>
+  <con:entry key="Environment" value="No Environment"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value="${WORKSPACE}"/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="true"/>
+</xml-fragment>]]></con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:requirements/>
+  <con:properties>
+    <con:property>
+      <con:name>userName</con:name>
+      <con:value>SVeena</con:value>
+    </con:property>
+    <con:property>
+      <con:name>password</con:name>
+      <con:value>Falcon@123</con:value>
+    </con:property>
+  </con:properties>
+  <con:afterLoadScript/>
+  <con:beforeSaveScript>testRunner.testCase.testSuite.setPropertyValue( "CurrentUserId", "9")</con:beforeSaveScript>
   <con:wssContainer/>
   <con:databaseConnectionContainer/>
   <con:jmsConnectionContainer/>
   <con:oAuth2ProfileContainer/>
   <con:oAuth1ProfileContainer/>
   <con:reporting/>
+  <con:afterRunScript/>
   <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
     <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
 // This code is often used for adding custom authentication to ReadyAPI functional tests
@@ -37,6 +89,44 @@
 // pw.close()
 // fos.close()</con:script>
   </con:eventHandlers>
+  <con:environment id="897c5388-d5ee-451f-9918-22965b2f7f51" name="Dev" index="0">
+    <con:service type="REST" name="FalconLogin">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://dev-falconservice.carlstahl.ae</con:endpoint>
+    </con:service>
+    <con:property>
+      <con:name>userName</con:name>
+      <con:value>SVeena</con:value>
+    </con:property>
+    <con:property>
+      <con:name>password</con:name>
+      <con:value>Falcon@123</con:value>
+    </con:property>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:environment id="3a27fd3c-5de5-4314-b5c6-49e0e8ac632c" name="LocalVirt" index="1">
+    <con:service type="REST" name="FalconLogin">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://localhost:8080</con:endpoint>
+    </con:service>
+    <con:property>
+      <con:name>userName</con:name>
+      <con:value>SVeena</con:value>
+    </con:property>
+    <con:property>
+      <con:name>password</con:name>
+      <con:value>carlstahl@551234</con:value>
+    </con:property>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
   <con:authRepository/>
+  <con:environmentSpec>
+    <con:entry environmentId="897c5388-d5ee-451f-9918-22965b2f7f51">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="3a27fd3c-5de5-4314-b5c6-49e0e8ac632c">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
   <con:tags/>
 </con:soapui-project>

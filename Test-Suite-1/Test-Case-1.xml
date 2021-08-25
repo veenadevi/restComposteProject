@@ -3,6 +3,7 @@
   <con:settings>
     <con:setting id="c484f403-6cf1-4e13-bb7a-9056ac9815d4fileName">Test-Case-1</con:setting>
   </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:testStep type="restrequest" name="REST Request" id="5aaa65f7-59ad-4f9d-b426-7490c161acbc">
     <con:settings/>
     <con:config service="FalconLogin" resourcePath="/api/MobileUserManagement/Login" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -11,9 +12,9 @@
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:endpoint>http://dev-falconservice.carlstahl.ae</con:endpoint>
-        <con:request>{
-"Username":"ram",
-"Password":"carlstahl@55"
+        <con:request>{\r
+   "Username" : "${#Project#userName}",\r
+   "Password" : "${#Project#password}"\r
 }</con:request>
         <con:originalUri>http://dev-falconservice.carlstahl.ae/api/MobileUserManagement/Login</con:originalUri>
         <con:assertion type="Valid HTTP Status Codes" id="c3db56e1-8306-4d2d-a93c-b6d31267e05d" name="Valid HTTP Status Codes">
@@ -29,9 +30,49 @@
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters/>
         <con:parameterOrder/>
+        <con:environmentSpec>
+          <con:entry environmentId="897c5388-d5ee-451f-9918-22965b2f7f51">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="3a27fd3c-5de5-4314-b5c6-49e0e8ac632c">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:restRequest>
     </con:config>
   </con:testStep>
+  <con:testStep type="groovy" name="Groovy Script" id="ae7c01f2-866e-4b5d-b19b-4ce82136bb3b">
+    <con:settings/>
+    <con:config>
+      <script>def response = context.expand( '${REST Request#Response#$[\'Result\'][\'UserID\']}' )
+
+//readyapi.demo.Callee.salute(userName, log )
+
+testRunner.testCase.testSuite.setPropertyValue( "CurrentUserId", response)
+log.info response</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="ExternalGroovy" id="d870b771-17b8-46e4-968c-56eb1dd12e0d">
+    <con:settings/>
+    <con:config>
+      <script>import Callee
+// Call the class from the library and post the returned information to the log.
+c = new Callee()
+//log.info c.hello()
+def response = context.expand( '${REST Request#Response#$[\'Result\'][\'RealName\']}' )
+readyapi.demo.Callee.salute(response,log)</script>
+    </con:config>
+  </con:testStep>
+  <con:setupScript/>
+  <con:tearDownScript>testRunner.testCase.testSuite.setPropertyValue( "CurrentUserId", "999")</con:tearDownScript>
   <con:properties/>
   <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="897c5388-d5ee-451f-9918-22965b2f7f51">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="3a27fd3c-5de5-4314-b5c6-49e0e8ac632c">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
 </con:testCase>

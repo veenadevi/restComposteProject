@@ -3,7 +3,24 @@
   <con:settings>
     <con:setting id="5d545d6f-f8ed-41b5-868e-841b0b737b70fileName">Test-Suite-1</con:setting>
   </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:runType>SEQUENTIAL</con:runType>
-  <con:properties/>
+  <con:properties>
+    <con:property>
+      <con:name>CurrentUserId</con:name>
+      <con:value>00</con:value>
+    </con:property>
+  </con:properties>
+  <con:setupScript>virtRunner.run("REST Virtual Service 1")</con:setupScript>
+  <con:tearDownScript>virtRunner.stop("REST Virtual Service 1")</con:tearDownScript>
+  <con:reportScript>import rya.subreport</con:reportScript>
   <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="897c5388-d5ee-451f-9918-22965b2f7f51">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="3a27fd3c-5de5-4314-b5c6-49e0e8ac632c">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
 </con:testSuite>
